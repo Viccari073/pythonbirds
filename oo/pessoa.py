@@ -14,13 +14,14 @@ class Pessoa:  # Classe
 
 
 if __name__ == '__main__':
-    lucas = Pessoa(nome='Lucas')  # Objeto 'p'
-    ricardo = Pessoa(lucas, nome='Ricardo')
+    lucas = Pessoa(nome='Lucas', idade=36)  # Objeto 'p'
+    carol = Pessoa(nome='Carol', idade=40)
+    ricardo = Pessoa(lucas, carol, nome='Ricardo')
     print(Pessoa.cumprimentar(ricardo))  # Forma não usual. Declara a classe, chama o método e define o parâmetro.
     print(id(ricardo))
     print(ricardo.cumprimentar())  # chamando o método a partir do objeto
     print(ricardo.nome)
     print(ricardo.idade)
     for filhos in ricardo.filhos:
-        print(filhos.nome)
+        print(filhos.nome, filhos.idade)
     print(ricardo.filhos)
