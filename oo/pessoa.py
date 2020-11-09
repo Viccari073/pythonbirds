@@ -4,7 +4,7 @@
 # OBS: self -> parametro que será um objeto a ser recebido. Não é uma palavra reservada (pode ser qlq coisa).
 
 class Pessoa:  # Classe
-    def __init__(self, *filhos, nome=None, idade=35) -> object:  # Atributo de dado ou atributo de instância.
+    def __init__(self, *filhos, nome=None, idade=70) -> object:  # Atributo de dado ou atributo de instância.
         self.idade = idade
         self.nome = nome  # Está passando para o atributo nome (self.nome) o parâmentro nome (nome=None)
         self.filhos = list(filhos)  # objeto complexo
@@ -25,3 +25,8 @@ if __name__ == '__main__':
     for filhos in ricardo.filhos:
         print(filhos.nome, filhos.idade)
     print(ricardo.filhos)
+    del ricardo.filhos  # Removendo um atriburo dinamicamente
+    lucas.sobrenome = 'Viccari'  # atributo dinâmico
+    print(lucas.__dict__)  # atributo especial. o 'dunder dict' contem os atribuots de instância.
+    print(ricardo.__dict__)
+
