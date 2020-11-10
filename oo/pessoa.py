@@ -14,8 +14,16 @@ class Pessoa:  # Classe
         self.nome = nome  # Está passando para o atributo nome (self.nome) o parâmentro nome (nome=None)
         self.filhos = list(filhos)  # objeto complexo
 
-    def cumprimentar(self):  # Método (atributo da classe)
+    def cumprimentar(self):  # Método de instância (atributo da classe)
         return f'Olá {id(self)}'
+
+    @staticmethod  # Decorator
+    def metodo_estatico():  # Método de classe
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'  # como utilizo o cls, eu posso acessar os atributos de classe da classe Pessoa
 
 
 if __name__ == '__main__':
@@ -41,4 +49,6 @@ if __name__ == '__main__':
     print(ricardo.olhos)
     print(lucas.olhos)
     print(id(Pessoa.olhos), id(ricardo.olhos), id(lucas.olhos))
+    print(Pessoa.metodo_estatico(), lucas.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), lucas.nome_e_atributos_de_classe())
 
