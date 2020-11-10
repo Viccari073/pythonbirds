@@ -7,7 +7,8 @@
 
 class Pessoa:  # Classe
 
-    olhos = 2  # Atributo de classe ou atributo default.
+    olhos = orelhas = 2  # Atributos de classe ou atributo default.
+    boca = nariz = 1
 
     def __init__(self, *filhos, nome=None, idade=70):  # Atributo de dado ou atributo de instância.
         self.idade = idade
@@ -22,8 +23,8 @@ class Pessoa:  # Classe
         return 42
 
     @classmethod
-    def nome_e_atributos_de_classe(cls):
-        return f'{cls} - olhos {cls.olhos}'  # como utilizo o cls, eu posso acessar os atributos de classe da classe Pessoa
+    def nome_e_atributos_de_classe(cls):  # como utilizo o cls, eu posso acessar os atributos de classe da classe Pessoa
+        return f'{cls} - Olhos: {cls.olhos}, Orelhas: {cls.orelhas}, Nariz: {cls.nariz}, Boca: {cls.boca}'
 
 
 if __name__ == '__main__':
