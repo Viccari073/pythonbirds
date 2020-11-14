@@ -101,6 +101,10 @@ class Motor:
         self.velocidade += 1
 
     def frear(self):
+        """
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)  # A velocidade será maior que 0 se for positiva. Se for negativa, retorna 0.
+        """
         if self.velocidade >= 2:
             self.velocidade -= 2
         elif self.velocidade == 1:
@@ -132,6 +136,11 @@ class Direcao:
             self.direcao = 'Leste'
         elif self.direcao == 'Leste':
             self.direcao = 'Norte'
+
+
+
+
+
 
 
 
