@@ -27,8 +27,12 @@ class Pessoa:  # Classe
         return f'{cls} - Olhos: {cls.olhos}, Orelhas: {cls.orelhas}, Nariz: {cls.nariz}, Boca: {cls.boca}'
 
 
+class Homem(Pessoa):  # A classe homem herdará todos os atributos da class pai (Pessoa). Polimorfismo através da herança
+    pass
+
+
 if __name__ == '__main__':
-    lucas = Pessoa(nome='Lucas', idade=36)  # Objeto 'p'
+    lucas = Homem(nome='Lucas', idade=36)  # Objeto 'p'
     carol = Pessoa(nome='Carol', idade=40)
     ricardo = Pessoa(lucas, carol, nome='Ricardo')
     print(Pessoa.cumprimentar(ricardo))  # Forma não usual. Declara a classe, chama o método e define o parâmetro.
@@ -52,4 +56,8 @@ if __name__ == '__main__':
     print(id(Pessoa.olhos), id(ricardo.olhos), id(lucas.olhos))
     print(Pessoa.metodo_estatico(), lucas.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe(), lucas.nome_e_atributos_de_classe())
-
+    pessoa = Pessoa('Anômino')  # pessoa <- objeto (variável). Pessoa <- classe
+    print(isinstance(pessoa, Pessoa))  # serve pra perguntar se um objeto é de determinada classe (objeto, classe). Resposta em bolleano.
+    print(isinstance(pessoa, Homem))
+    print(isinstance(lucas, Pessoa))
+    print(isinstance(lucas, Homem))

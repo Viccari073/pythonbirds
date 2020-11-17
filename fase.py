@@ -33,7 +33,7 @@ class Fase():
         """
         self.intervalo_de_colisao = intervalo_de_colisao
         self._passaros = []  # quando começa com _, indica que o usuário não deveria diretamente acessar esse atributo (é um atributo protegido).
-        self._porcos = []
+        self._porcos = []    # o começo com _ é chamado de encapsulamento.
         self._obstaculos = []
 
 
