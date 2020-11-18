@@ -16,7 +16,7 @@ class Pessoa:  # Classe
         self.filhos = list(filhos)  # objeto complexo
 
     def cumprimentar(self):  # Método de instância (atributo da classe)
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é: {self.nome}'
 
     @staticmethod  # Decorator
     def metodo_estatico():  # Método de classe
@@ -28,17 +28,18 @@ class Pessoa:  # Classe
 
 
 class Homem(Pessoa):  # A classe homem (filha) herdará todos os atributos da class pai (Pessoa). Polimorfismo através da herança
-    pass
-
+    def cumprimentar(self):  # sobrescrita de método
+        cumprimentar_da_classe = super().cumprimentar()  # o método super acessa os elementos da classe pai de Homem, seja ela quer for!
+        return f'{cumprimentar_da_classe}. Aperto de mão!'
 
 class Mutante(Pessoa):
-    olhos = 3  # SOBRESCRITA pq estamos sobrepondo o atritudo na classe Mutante em relação à calsse Pai Pessoa
+    olhos = 3  # SOBRESCRITA de atributo. Pq estamos sobrepondo o atritudo na classe Mutante em relação à calsse Pai Pessoa
 
 
 if __name__ == '__main__':
     lucas = Mutante(nome='Lucas', idade=36)  # Objeto 'p'
     carol = Pessoa(nome='Carol', idade=40)
-    ricardo = Pessoa(lucas, carol, nome='Ricardo')
+    ricardo = Homem(lucas, carol, nome='Ricardo')
     print(Pessoa.cumprimentar(ricardo))  # Forma não usual. Declara a classe, chama o método e define o parâmetro.
     print(id(ricardo))
     print(ricardo.cumprimentar())  # chamando o método a partir do objeto
@@ -66,3 +67,5 @@ if __name__ == '__main__':
     print(isinstance(lucas, Pessoa))
     print(isinstance(lucas, Homem))
     print(lucas.olhos)  # está buscando a informação na classe Mutante.
+    print(lucas.cumprimentar())
+    print(ricardo.cumprimentar())
