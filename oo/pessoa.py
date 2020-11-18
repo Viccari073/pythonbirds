@@ -27,12 +27,16 @@ class Pessoa:  # Classe
         return f'{cls} - Olhos: {cls.olhos}, Orelhas: {cls.orelhas}, Nariz: {cls.nariz}, Boca: {cls.boca}'
 
 
-class Homem(Pessoa):  # A classe homem herdará todos os atributos da class pai (Pessoa). Polimorfismo através da herança
+class Homem(Pessoa):  # A classe homem (filha) herdará todos os atributos da class pai (Pessoa). Polimorfismo através da herança
     pass
 
 
+class Mutante(Pessoa):
+    olhos = 3  # SOBRESCRITA pq estamos sobrepondo o atritudo na classe Mutante em relação à calsse Pai Pessoa
+
+
 if __name__ == '__main__':
-    lucas = Homem(nome='Lucas', idade=36)  # Objeto 'p'
+    lucas = Mutante(nome='Lucas', idade=36)  # Objeto 'p'
     carol = Pessoa(nome='Carol', idade=40)
     ricardo = Pessoa(lucas, carol, nome='Ricardo')
     print(Pessoa.cumprimentar(ricardo))  # Forma não usual. Declara a classe, chama o método e define o parâmetro.
@@ -49,7 +53,7 @@ if __name__ == '__main__':
     lucas.sobrenome = 'Viccari'  # atributo dinâmico
     print(lucas.__dict__)  # atributo especial. o 'dunder dict' contem os atribuots de instância.
     print(ricardo.__dict__)
-    Pessoa.olhos = 3  # altera o valor do atributo para todos os objetos da classe
+#    Pessoa.olhos = 3  # altera o valor do atributo para todos os objetos da classe
     print(Pessoa.olhos)
     print(ricardo.olhos)
     print(lucas.olhos)
@@ -61,3 +65,4 @@ if __name__ == '__main__':
     print(isinstance(pessoa, Homem))
     print(isinstance(lucas, Pessoa))
     print(isinstance(lucas, Homem))
+    print(lucas.olhos)  # está buscando a informação na classe Mutante.
